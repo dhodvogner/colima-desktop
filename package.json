@@ -1,0 +1,23 @@
+{
+  "name": "colima-desktop",
+  "version": "1.0.0-beta.1",
+  "description": "Colima's desktop utility",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["colima", "desktop", "utility"],
+  "author": {
+    "name": "Daniel Hodvogner",
+    "email": "dhodvogner@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhodvogner/colima-desktop.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.0.0"
+  }
+}
