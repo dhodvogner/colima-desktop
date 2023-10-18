@@ -12,25 +12,37 @@ const ColimaStatuses = {
   NotRunning: 'not-running',
   Starting: 'starting',
   Stopping: 'stopping',
-  Restarting: 'restarting',
+  Restarting: 'restarting'
 }
 
 const getstatusText = (status) => {
-  switch(status) {
+  switch (status) {
     case ColimaStatuses.Running:
-      return 'Running';
+      return 'Running'
     case ColimaStatuses.NotRunning:
-      return 'Not running';
+      return 'Not running'
     case ColimaStatuses.Starting:
-      return 'Starting...';
+      return 'Starting...'
     case ColimaStatuses.Stopping:
-      return 'Stopping...';
+      return 'Stopping...'
     case ColimaStatuses.Restarting:
-      return 'Restarting...';
+      return 'Restarting...'
   }
+}
+
+let currentStatus = ColimaStatuses.NotRunning
+
+const getCurrentStatus = () => {
+  return currentStatus
+}
+
+const setCurrentStatus = (status) => {
+  currentStatus = status
 }
 
 module.exports = {
   ColimaStatuses,
-  getstatusText
+  getstatusText,
+  getCurrentStatus,
+  setCurrentStatus
 }
