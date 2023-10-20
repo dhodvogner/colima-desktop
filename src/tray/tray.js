@@ -3,6 +3,7 @@ const { Tray, Menu } = require('electron')
 const { setCurrentStatus, ColimaStatuses, getstatusText } = require('../colima/colima-statuses')
 const { loadIcons, getTrayIcon } = require('./tray-icons')
 const { onStartColima, onStopColima, onRestartColima, getColimaStatus } = require('../colima/colima-functions')
+const { openSettings } = require('../settings/settings')
 
 let tray, contextMenu
 let iconUpdateTimeout = null
@@ -76,7 +77,7 @@ const updateTrayStatus = (status) => {
       type: 'normal',
       label: 'Settings',
       click: () => {
-        console.log('settings')
+        openSettings()
       }
     },
     { type: 'normal', label: 'Close Colima Desktop', role: 'quit' }
