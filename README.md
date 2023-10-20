@@ -14,10 +14,11 @@ Currently, I'm only targeting macOS. (But maybe Windows and Linux will be suppor
 - ✅ Start/Stop/Restart Colima
 - ✅ Display Colima status (Running, Stopped, Starting, Stopping, Restarting)
 - ✅ Animated Colima tray icon
-- 📋 Collect and view Colima logs
+- ✅ Collect and view Colima logs
 - 📋 Colima settings
   - Launch Colima Desktop at login
   - Colima start arguments
+  - Colima path (Lima path?)
   - Colima version
 
 ## Installation
