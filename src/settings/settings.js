@@ -1,6 +1,7 @@
-const fs = require('fs')
 const path = require('path')
 const { BrowserWindow, ipcMain } = require('electron')
+
+const { getLogs } = require('../utils/logs')
 
 const openSettings = () => {
   const win = new BrowserWindow({
@@ -14,7 +15,7 @@ const openSettings = () => {
   win.loadFile('./src/settings/index.html')
 
   ipcMain.on('get-logs', (event) => {
-    const logs = fs.readFileSync('colima-desktop.log', 'utf-8')
+    const logs = getLogs()
     event.reply('get-logs-reply', logs)
   })
 

@@ -14,8 +14,6 @@ const icons = {
 let startingAnimFrame = 1
 
 const loadIcons = () => {
-  console.log(path.join(__dirname, '../assets/colima-stopped.png'))
-
   icons.started = nativeImage.createFromPath(
     path.join(__dirname, '../assets/colima-started.png')
   )

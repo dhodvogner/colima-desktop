@@ -1,4 +1,5 @@
 const { runCommand, parseOutputString } = require('../utils/command')
+const { log } = require('../utils/logs')
 const { ColimaStatuses, getCurrentStatus } = require('./colima-statuses')
 
 // TODO: Refactor this file!
@@ -7,7 +8,7 @@ const { ColimaStatuses, getCurrentStatus } = require('./colima-statuses')
 // This is a mess right now...
 
 const onStartColima = () => {
-  console.log('start')
+  log('Colima Desktop', 'Starting Colima')
   const { updateTrayStatus } = require('../tray/tray')
   updateTrayStatus(ColimaStatuses.Starting)
   runCommand(['start']).then(() => {
@@ -17,7 +18,7 @@ const onStartColima = () => {
 }
 
 const onStopColima = () => {
-  console.log('stop')
+  log('Colima Desktop', 'Stopping Colima')
   const { updateTrayStatus } = require('../tray/tray')
   updateTrayStatus(ColimaStatuses.Stopping)
   runCommand(['stop']).then(() => {
@@ -27,7 +28,7 @@ const onStopColima = () => {
 }
 
 const onRestartColima = () => {
-  console.log('restart')
+  log('Colima Desktop', 'Restarting Colima')
   const { updateTrayStatus } = require('../tray/tray')
   updateTrayStatus(ColimaStatuses.Restarting)
   runCommand(['restart']).then(() => {
@@ -76,7 +77,7 @@ const getColimaStatus = () => {
 
     runCommand(['status'], handlers)
       .catch((error) => {
-        console.log(error)
+        log('Colima Desktop', error.message)
       })
   })
 }

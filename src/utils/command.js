@@ -1,23 +1,30 @@
-const fs = require('fs')
 const { spawn } = require('node:child_process')
 
-const log = (source, message) => {
-  const logMessage = `${new Date().toISOString()}|[${source}]|${message}`
-  fs.writeFileSync('colima-desktop.log', logMessage, { flag: 'a+' })
-}
+const { log } = require('./logs')
 
 const runCommand = (args, handlers) => {
   if (handlers === undefined) {
     handlers = {
-      onStdout: () => {},
-      onStderr: () => {},
-      onError: () => {},
-      onClose: () => {}
+      onStdout: () => { },
+      onStderr: () => { },
+      onError: () => { },
+      onClose: () => { }
     }
   }
 
   return new Promise((resolve, reject) => {
-    const colima = spawn('colima', args)
+    log('Colima Desktop', `Running command: colima ${args.join(' ')}`)
+    log('Colima Desktop', `Current working directory: ${process.cwd()}`)
+    log('Colima Desktop', `Environment variables: ${JSON.stringify(process.env)}`)
+
+    const colimaPath = '/usr/local/bin/colima' // TODO: Expose this path in settings
+    const colima = spawn(colimaPath, args, {
+      cwd: process.cwd(),
+      env: {
+        HOME: process.env.HOME,
+        PATH: process.env.PATH + ':/usr/local/bin' // PATH doesn't include /usr/local/bin on macOS by default
+      }
+    })
 
     colima.stdout.on('data', data => {
       log('stdout', data)
