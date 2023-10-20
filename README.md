@@ -25,6 +25,16 @@ Currently, I'm only targeting macOS. (But maybe Windows and Linux will be suppor
 // TODO: Figure out how to distribute this. (brew? npm? github releases?)
 // TODO: Add Installation instructions
 
+## Building from Source
+
+```bash
+git clone https://github.com/dhodvogner/colima-desktop.git
+cd colima-desktop
+npm install
+npm run clean
+npm run make
+```
+
 ## Development
 
 ```bash
