@@ -7,3 +7,5 @@ app.whenReady().then(() => {
 }).catch(err => {
   console.error(err)
 })
+
+app.on('window-all-closed', e => e.preventDefault())

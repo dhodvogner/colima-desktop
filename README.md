@@ -11,19 +11,27 @@ Currently, I'm only targeting macOS. (But maybe Windows and Linux will be suppor
 
 ## Features
 
-- ✅ Start/Stop/Restart Colima
+- ✅ Start/Stop/Restart Colima via the CLI command
 - ✅ Display Colima status (Running, Stopped, Starting, Stopping, Restarting)
-- ✅ Animated Colima tray icon
-- ✅ Collect and view Colima logs
+- ✅ Animated tray icon
+- 📋 Logging
+  - ✅ Save and view logs (from the Colima CLI)
+  - 📋 Clear logs
 - 📋 Colima settings
-  - Launch Colima Desktop at login
-  - Colima start arguments
-  - Colima path (Lima path?)
-  - Colima version
+  - ✅ Colima start arguments
+  - ✅ Colima path
+  - 📋 Launch Colima Desktop at login
+  - 📋 Colima version
+  - 📋 Settings design
+
+✅ = Implemented
+
+📋 = Planned
 
 ## Installation
 
 // TODO: Figure out how to distribute this. (brew? npm? github releases?)
+
 // TODO: Add Installation instructions
 
 ## Building from Source

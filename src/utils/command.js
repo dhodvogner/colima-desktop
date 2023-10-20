@@ -1,6 +1,7 @@
 const { spawn } = require('node:child_process')
 
 const { log } = require('./logs')
+const { getSettings } = require('../settings/settings')
 
 const runCommand = (args, handlers) => {
   if (handlers === undefined) {
@@ -14,11 +15,11 @@ const runCommand = (args, handlers) => {
 
   return new Promise((resolve, reject) => {
     log('Colima Desktop', `Running command: colima ${args.join(' ')}`)
-    log('Colima Desktop', `Current working directory: ${process.cwd()}`)
-    log('Colima Desktop', `Environment variables: ${JSON.stringify(process.env)}`)
+    // log('Colima Desktop', `Current working directory: ${process.cwd()}`)
+    // log('Colima Desktop', `Environment variables: ${JSON.stringify(process.env)}`)
 
-    const colimaPath = '/usr/local/bin/colima' // TODO: Expose this path in settings
-    const colima = spawn(colimaPath, args, {
+    const settings = getSettings()
+    const colima = spawn(settings.colimaPath, args, {
       cwd: process.cwd(),
       env: {
         HOME: process.env.HOME,
