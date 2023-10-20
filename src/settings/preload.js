@@ -5,5 +5,6 @@ contextBridge.exposeInMainWorld('electronAPI', {
   onLogs: (callback) => ipcRenderer.on('get-logs-reply', (event, args) => callback(args)),
   getSettings: () => ipcRenderer.send('get-settings'),
   onSettings: (callback) => ipcRenderer.on('get-settings-reply', (event, args) => callback(args)),
-  saveSettings: (settings) => ipcRenderer.send('save-settings', settings)
+  saveSettings: (settings) => ipcRenderer.send('save-settings', settings),
+  openDevTools: () => ipcRenderer.send('open-dev-tools')
 })

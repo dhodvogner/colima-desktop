@@ -4,16 +4,21 @@ const { BrowserWindow, ipcMain } = require('electron')
 
 const { log, getLogs, getAppDataPath } = require('../utils/logs')
 
+let settingsWindow = null
+
 const openSettings = () => {
-  const win = new BrowserWindow({
+  settingsWindow = new BrowserWindow({
     width: 800,
     height: 600,
+    title: 'Colima Desktop - Settings',
+    fullscreenable: false,
+    resizable: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
   })
 
-  win.loadFile('./src/settings/index.html')
+  settingsWindow.loadFile('./src/settings/index.html')
 
   ipcMain.on('get-logs', (event) => {
     const logs = getLogs()
@@ -29,7 +34,9 @@ const openSettings = () => {
     saveSettings(settings)
   })
 
-  win.webContents.openDevTools()
+  ipcMain.on('open-dev-tools', () => {
+    settingsWindow.webContents.openDevTools()
+  })
 }
 
 const defaultSettings = {

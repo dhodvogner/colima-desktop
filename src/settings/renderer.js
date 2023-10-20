@@ -6,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.electronAPI.getLogs()
   })
 
+  document.getElementById('open-dev-tools').addEventListener('click', () => {
+    window.electronAPI.openDevTools()
+  })
+
   document.getElementById('settings-form').addEventListener('submit', (event) => {
     event.preventDefault()
     event.stopPropagation()
@@ -24,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(settings)
     window.electronAPI.saveSettings(settings)
   })
+
+  initTabs()
 })
 
 window.electronAPI.onLogs((logs) => {
@@ -49,4 +55,29 @@ window.electronAPI.onSettings((settings) => {
 const setFormElementValue = (form, name, value) => {
   const input = form.querySelector(`input[name=${name}]`)
   input.value = value
+}
+
+const initTabs = () => {
+  const tabs = document.querySelectorAll('.ms-tab li a')
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (event) => {
+      event.preventDefault()
+
+      const targetTab = event.target.dataset.targetTab
+      const activeTab = document.querySelector('.tab.active')
+      const targetTabElement = document.querySelector(`.tab.${targetTab}`)
+
+      console.log(targetTab, activeTab, targetTabElement)
+
+      activeTab.classList.remove('active')
+      activeTab.classList.add('ms-display-none')
+      targetTabElement.classList.remove('ms-display-none')
+      targetTabElement.classList.add('active')
+
+      const activeTabLink = document.querySelector('.ms-tab li a.ms-active')
+      activeTabLink.classList.remove('ms-active')
+
+      event.target.classList.add('ms-active')
+    })
+  })
 }

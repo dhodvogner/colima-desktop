@@ -1,39 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Settings | Colima Desktop</title>
+  <title>Colima Desktop - Settings</title>
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/npm/minstyle.io@2.0.2/dist/css/minstyle.io.min.css">
 </head>
+
 <body>
-  <h2>Settings</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="ms-tab">
+          <ul>
+            <li><a href="#" data-target-tab="settings-tab" class="ms-active">Settings</a></li>
+            <li><a href="#" data-target-tab="logs-tab">Logs</a></li>
+          </ul>
+        </div>
 
-  <div class="settings">
-    <form id="settings-form">
-      <label for="colima-path">Colima path</label>
-      <input type="text" name="colima-path" placeholder="Colima path" value="/usr/local/bin/colima" id="colima-path">
+        <div class="tab settings-tab active">
+          <h2>Settings</h2>
+          <form id="settings-form">
 
-      <label for="cpu">Cpu</label>
-      <input type="text" name="cpu" placeholder="Cpu" value="2" id="cpu">
+            <div class="ms-form-group">
+              <label for="colima-path">Colima path</label>
+              <input type="text" name="colima-path" placeholder="Colima path" value="/usr/local/bin/colima"
+                id="colima-path">
+            </div>
 
-      <label for="memory">Memory</label>
-      <input type="text" name="memory" placeholder="Memory" value="2" id="memory">
+            <div class="ms-form-group">
+              <label for="cpu">Cpu</label>
+              <input type="text" name="cpu" placeholder="Cpu" value="2" id="cpu">
+            </div>
 
-      <label for="disk">Disk</label>
-      <input type="text" name="disk" placeholder="Disk (GB)" value="60" id="disk">
+            <div class="ms-form-group">
+              <label for="memory">Memory</label>
+              <input type="text" name="memory" placeholder="Memory" value="2" id="memory">
+            </div>
 
-      <label for="rosetta-emulation">Enable Rosetta Emulation</label>
-      <input type="checkbox" name="rosetta-emulation" id="rosetta-emulation">
+            <div class="ms-form-group">
+              <label for="disk">Disk</label>
+              <input type="text" name="disk" placeholder="Disk (GB)" value="60" id="disk">
+            </div>
 
-      <button type="submit">Save settings</button>
-    </form>
+            <div class="ms-form-group">
+              <label for="rosetta-emulation">Enable Rosetta Emulation</label>
+              <input type="checkbox" name="rosetta-emulation" id="rosetta-emulation">
+            </div>
+
+            <button class="ms-btn ms-action" type="submit">Save settings</button>
+          </form>
+        </div>
+
+        <div class="tab logs-tab ms-display-none">
+
+          <h2>Logs</h2>
+
+          <div class="logs"></div>
+          <button id="refresh-logs">Refresh logs</button>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        
+        <div class="ms-alert ms-action2 ms-mt-6">
+          <p>
+            <strong>Developer options</strong> Only use this if you know what you are doing.
+            <button id="open-dev-tools">Open dev tools</button>
+          </p>
+      </div>
+      </div>
+    </div>
   </div>
-
-  <h2>Logs</h2>
-
-  <div class="logs"></div>
-  <button id="refresh-logs">Refresh logs</button>
 
   <script src="renderer.js"></script>
 </body>
+
 </html>
