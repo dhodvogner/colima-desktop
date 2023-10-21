@@ -1,6 +1,7 @@
 module.exports = {
   packagerConfig: {
-    asar: true
+    asar: true,
+    icon: './icons/colima-desktop'
   },
   rebuildConfig: {},
   makers: [
@@ -24,7 +25,8 @@ module.exports = {
       name: '@electron-forge/maker-dmg',
       config: {
         name: 'Colima Desktop',
-        // background: './assets/dmg-background.png',
+        icon: './icons/colima-desktop.icns',
+        // background: './icons/dmg-background.png',
         format: 'ULFO'
       }
     }
