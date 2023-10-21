@@ -5,9 +5,12 @@
 ## Project Goals
 
 I'd like to keep this as simple as possible.
+
 At the moment, I don't have any plans to add any fancy features. (Like listing containers, images, etc.)
 
-Currently, I'm only targeting macOS. (But maybe Windows and Linux will be supported in the future.)
+Read the [Features](#features) section for more information.
+
+Currently, I'm only targeting MacOS. (But maybe Windows and Linux will be supported in the future.)
 
 ## Features
 
@@ -24,9 +27,9 @@ Currently, I'm only targeting macOS. (But maybe Windows and Linux will be suppor
   - 📋 Colima version
   - 📋 Settings design
 
-✅ = Implemented
+✅ = Implemented 📋 = Planned
 
-📋 = Planned
+See the [PLAN - v1.0.0](https://github.com/dhodvogner/colima-desktop/issues/1) issue for more information.
 
 ## Installation
 
@@ -39,6 +42,7 @@ Currently, I'm only targeting macOS. (But maybe Windows and Linux will be suppor
 ```bash
 git clone https://github.com/dhodvogner/colima-desktop.git
 cd colima-desktop
+nvm use
 npm install
 npm run clean
 npm run make
@@ -49,10 +53,21 @@ npm run make
 ```bash
 git clone https://github.com/dhodvogner/colima-desktop.git
 cd colima-desktop
+nvm use
 npm install
 npm start
 ```
 
+## Contributing
+
+Any contributions you make are **greatly appreciated**.
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+To keep the codebase consistent, please run `npm run lint` before committing your changes.
+
+By contributing, you agree that your contributions will be licensed under its MIT License.
+
 ## License
 
-MIT
+[MIT](./LICENSE.md)
