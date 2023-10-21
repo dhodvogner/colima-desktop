@@ -24,7 +24,11 @@ const initTray = () => {
     try {
       await getColimaStatus()
     } catch (e) {
-      dialog.showErrorBox('Error', e.message)
+      if (e.message.indexOf('ENOENT') !== -1) {
+        dialog.showErrorBox('Error', 'Colima not found, Please change the path in the settings. (which colima)')
+      } else {
+        dialog.showErrorBox('Error', e.message)
+      }
     }
     tray.popUpContextMenu(contextMenu)
   })
