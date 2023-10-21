@@ -97,6 +97,7 @@ const getColimaStatus = () => {
     runCommand(['status'], handlers)
       .catch((error) => {
         log('Colima Desktop', error.message)
+        reject(new Error(error.message))
       })
   })
 }

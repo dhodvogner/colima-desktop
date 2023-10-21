@@ -1,4 +1,4 @@
-const { Tray, Menu } = require('electron')
+const { Tray, Menu, dialog } = require('electron')
 
 const { setCurrentStatus, ColimaStatuses, getstatusText } = require('../colima/colima-statuses')
 const { loadIcons, getTrayIcon } = require('./tray-icons')
@@ -21,7 +21,11 @@ const initTray = () => {
   updateTrayStatus(ColimaStatuses.NotRunning)
 
   tray.on('click', async () => {
-    await getColimaStatus()
+    try {
+      await getColimaStatus()
+    } catch (e) {
+      dialog.showErrorBox('Error', e.message)
+    }
     tray.popUpContextMenu(contextMenu)
   })
 }
