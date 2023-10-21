@@ -30,9 +30,9 @@ Currently, I'm only targeting macOS. (But maybe Windows and Linux will be suppor
 
 ## Installation
 
-// TODO: Figure out how to distribute this. (brew? npm? github releases?)
-
-// TODO: Add Installation instructions
+1. Make sure you have [Colima](https://github.com/abiosoft/colima) installed on your system.
+2. Note down the path to the `colima` binary. (Run `which colima` in your terminal.)
+3. Download the latest release from the [releases page](https://github.com/dhodvogner/colima-desktop/releases).
 
 ## Building from Source
 
