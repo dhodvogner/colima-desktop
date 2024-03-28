@@ -23,7 +23,7 @@ const runCommand = (args, handlers) => {
       cwd: process.cwd(),
       env: {
         HOME: process.env.HOME,
-        PATH: process.env.PATH + ':/usr/local/bin' // PATH doesn't include /usr/local/bin on macOS by default
+        PATH: process.env.PATH + ':/usr/local/bin:/opt/homebrew/bin:' // PATH doesn't include /usr/local/bin on macOS by default
       }
     })
 
